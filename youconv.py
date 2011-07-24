@@ -27,7 +27,7 @@ def run():
 		mpd = MPDClient()
 		try:
 			mpd.connect(host="trillian", port="6600")
-			mpd.add("http://toolbox.labor.koeln.ccc.de:5000/static/%s" % myfile)
+			mpd.add("http://toolbox.labor.koeln.ccc.de/static/%s" % myfile)
 		except:
 			raise
 	except:
