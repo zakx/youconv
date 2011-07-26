@@ -16,7 +16,7 @@ def run():
 		return redirect(url_for('welcome'))
 	# do stuff
 	try:
-		p = subprocess.check_output(['/usr/bin/python','youtube-dl','-t','--no-progress','--extract-audio','--max-quality','18','--',request.form['url']])
+		p = subprocess.check_output(['/usr/bin/python', 'youtube-dl', '-t', '--no-progress', '--extract-audio', '--max-quality=18', '--audio-format=mp3', '--', request.form['url']])
 	except:
 		flash("Nice try.")
 		return redirect(url_for('welcome'))
@@ -31,7 +31,6 @@ def run():
 		except:
 			raise
 	except:
-		raise
 		flash('mpd failure')
 		return redirect(url_for('welcome'))
 	flash('your song has been added to the playlist')
